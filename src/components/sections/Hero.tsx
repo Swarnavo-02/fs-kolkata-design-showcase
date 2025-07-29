@@ -36,61 +36,61 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          {/* Badge */}
+          {/* Tagline */}
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8">
             <Star className="w-4 h-4 text-gold" />
-            <span className="text-white text-sm font-medium">Premium Architecture & Design</span>
+            <span className="text-white text-sm font-medium">Think Different, The Design Forever</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Designing Dreams.
+            A Modern Approach to
             <br />
-            <span className="text-gradient-gold">Building Reality.</span>
+            <span className="text-gradient-gold">Interior Designing</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transform your vision into stunning architectural masterpieces with F.S. Infrastructure. 
-            Premium design solutions in Kolkata and beyond.
+            We are committed to incorporating sustainable design strategies into all of our projects. 
+            It is woven into our design practices.
           </p>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">500+</div>
-              <div className="text-gray-300">Projects Completed</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">28</div>
+              <div className="text-gray-300">Residential Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">15+</div>
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">20</div>
+              <div className="text-gray-300">Commercial Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">8+</div>
               <div className="text-gray-300">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gold mb-2">98%</div>
-              <div className="text-gray-300">Client Satisfaction</div>
             </div>
           </div>
 
           {/* Call to Action */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contact">
+            <Link to="/projects">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-gold to-gold-light hover:shadow-premium-gold text-white px-8 py-4 text-lg"
               >
-                Start Your Project
+                View Projects
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             
-            <Link to="/projects">
+            <Link to="/contact">
               <Button 
                 variant="outline" 
                 size="lg"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-md px-8 py-4 text-lg"
               >
                 <Play className="w-5 h-5 mr-2" />
-                Watch Portfolio
+                Book Appointment
               </Button>
             </Link>
           </div>
