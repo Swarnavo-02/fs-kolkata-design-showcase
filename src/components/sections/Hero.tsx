@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-architecture.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Parallax Effect */}
+      {/* Background Image with Enhanced Parallax Effect */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed parallax-element"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ 
           backgroundImage: `url(${heroImage})`,
-          transform: 'scale(1.1)'
+          transform: `translateY(${scrollY * 0.5}px) scale(1.1)`,
+          willChange: 'transform'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal/80"></div>
@@ -63,22 +73,26 @@ const Hero = () => {
 
           {/* Call to Action */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-gold to-gold-light hover:shadow-premium-gold text-white px-8 py-4 text-lg"
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-gold to-gold-light hover:shadow-premium-gold text-white px-8 py-4 text-lg"
+              >
+                Start Your Project
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
             
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-md px-8 py-4 text-lg"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              Watch Portfolio
-            </Button>
+            <Link to="/projects">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-md px-8 py-4 text-lg"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                Watch Portfolio
+              </Button>
+            </Link>
           </div>
 
           {/* Scroll Indicator */}
